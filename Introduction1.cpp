@@ -90,8 +90,10 @@ int hungry(int food){
     std::cout << "\nWould you like to eat a chocolate? (y/n)";
     
     std::string choice;                                                 //declaring string variable
-    std::cin >> choice;
 
+    std::cin >> choice;
+    //now we need to clear out input as we will be using another input method later.
+    std::cin.ignore(256, '\n');
     if( choice == "y"){                                                 //using if statement
         food --;
     }
@@ -135,7 +137,7 @@ void doubleExplained(){
 
     float floatExample = 12345671234567.55;
 
-    std::cout << "Here is the number of decimal points within a float: " << FLT_DIG << std::endl;            //this will tell us how many decimal points
+    std::cout << "\nHere is the number of decimal points within a float: " << FLT_DIG << std::endl;            //this will tell us how many decimal points
     std::cout << "Here is the number of decimal points within a double: " << DBL_DIG << std::endl;
     std::cout << "Here is the number of decimal points within a long double: " << LDBL_DIG << std::endl;
 
