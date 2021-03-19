@@ -1,5 +1,7 @@
 // This is my second introduction file to c++
 #include <iostream>         //this will handle user input and output
+#include <ctime>             //implements system time
+#include <random>           //implements random
 
 
 //function declarations
@@ -13,12 +15,12 @@ void example2();
 void voidPointers();
 void structs();
 void dynamicMemory();
+void unions();
+void randomNumbers();
 
 
 // main functions
-int main(){
-
-    basicPointers();
+int main(){    
 
     comparingStrings();
 
@@ -30,6 +32,8 @@ int main(){
     passingByReference(exampleValue);
     std::cout << "Here is the example after passing by reference: " << exampleValue << std::endl;
 
+
+    basicPointers();
 
     //now we will send a function as a parameter through pointers
     std::cout << "Here we will view pointer functions" << std::endl;
@@ -44,7 +48,12 @@ int main(){
 
     //dynamic memory
     dynamicMemory();
+
+    //unions
+    unions();
     
+    //random numbers explained
+    randomNumbers();
 
 
     return 0;
@@ -240,8 +249,84 @@ void dynamicMemory(){
 
 }
 
+void unions(){
+    //describes unions
+
+    /*
+    The union data type shares all of the same memory, 
+    this is used when storing one varabile that consists of different types
+
+    you cannot use strings within unions
+    */
+
+   union UnionExample{
+       int a;
+       float b;
+       char c[5];       //6 bytes will be allocated to this union as this is the biggest size
+   };
+
+    UnionExample ex;
+    ex.a = 5;
+
+    std::cout << "value of int (set): " << ex.a << ", value of float (not set): " << ex.b << ", value of char array (not set): " << ex.c << std::endl;
 
 
+}
+
+void randomNumbers(){
+    //this function will demonstrate the different methods of generating methods
+
+    //the original way of generating random numbers 0 - 32767
+    
+    srand(time(0));      //taking the current systems time, this will be used as a seed
+    
+    std::cout << "generating random numbers based on the old school method" << std::endl;
+
+    for (int i=0; i < 4; i++){
+        std::cout << "random number " << i+1 << ": " << rand() << std::endl;     //generating random numbers
+    }
+
+
+    //----------------------------------------------------------------------
+
+    //using the random library, setting min and max values
+    std::default_random_engine randEng(time(0));             //setting our seed
+    std::uniform_int_distribution<int> uid(0,1000);           //setting our min and max values
+
+    std::cout << "Now we will demonstrate generating random numbers based on the random library" << std::endl;
+
+    for (int i = 0; i < 5; i++){
+        std::cout << "random number " << i+1 << ": " << uid(randEng) << std::endl;
+    }
+
+
+    //------------------------------------------------------
+
+    //distribution numbers, this will generate random numbers close to the specified mean
+
+    std::normal_distribution<> normal(5,1.5);
+
+    std::cout << "Now we will demonstrate distribution numbers around a mean" << std::endl;
+
+    for (int i = 0; i < 5; i++){
+        std::cout << "random number " << i+1 << ": " << normal(randEng) << std::endl;
+    }
+
+    //------------------------------------------------------
+
+    //Here is the final way to generate numbers, this method gives out the truest RNG form and should only be used in mathamatical applications
+    // this gives a range of 0 to 4294967295
+    
+    std::mt19937 mtg(time(0));      //setting the seed
+    std::uniform_int_distribution<int> trueRandom(0,1000);      //setting min and max
+
+    std::cout << "Now we will demonstrate true random using mt19937" << std::endl;
+
+    for (int i = 0; i < 5; i++){
+        std::cout << "random number " << i+1 << ": " << trueRandom(mtg) << std::endl;
+    }
+
+}
 
 
 
