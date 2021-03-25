@@ -1,0 +1,56 @@
+Code management
+
+When compiling multiple files we have to specifiy them all at a time, this can become a pain
+The compiler will convert each file into an object file (example.o) before linking each one to create
+an executable (example.exe)
+
+
+for example:
+g++ -o prog main.cpp fa.cpp fb.cpp
+
+if everyting was unchanged but fb.cpp we could do
+g++ -o progmain.cpp fa.cpp fb.o
+
+if we only wanted to produce an object file we could include the flag -c
+g++ -c main.cpp
+
+We could compile them all, however this could be inefficent when multiple files are included
+g++ *.cpp
+
+To fix this teidous problem, we have MakeFiles, which describe how our program can be constructed from
+source files. This itself is still a textfile.
+
+The following example:
+-   fa.cppdepends on fa.h.
+-   fb.cppdepends on fb.h.
+-   main.cppdepends on fa.hand fb.h.
+
+the makefile:
+#comments can be made with a hashtag
+prog:   main.o fa.o fb.o
+    g++ -o prog main.o fa.o fb.o
+
+main.o: main.cpp fa.h fb.h
+    g++ -c main.cpp
+
+fa.o:   fa.cpp fa.h
+    g++ -c fa.cpp
+
+fb.o:   fb.cpp fb.h
+    g++ -c fb.cpp
+
+
+This would be usefull, however it does not work in windows
+
+you can also define macros in makefiles, see the following examples:
+CCC= g++
+CCFLAGS=
+TARGETS= x.o y.o z.o
+prog:   $(TARGETS)
+    $(CCC) $(CCFLAGS) $(TARGETS) -o prog
+x.o:    x.c x.h
+    $(CCC) $(CCFLAGS) -c x.c
+y.o:    y.c y.h
+    $(CCC) $(CCFLAGS) -c y.c
+z.o:    z.c z.h
+    $(CCC) $(CCFLAGS) -c z.c

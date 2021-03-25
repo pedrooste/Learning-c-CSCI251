@@ -1,0 +1,10 @@
+
+Programming Defensively
+While we are handling exceptions and conditions that we know could happen, we should also equip our code
+to deal with errors that shouldnt occurr.
+
+some examples include
+-   throwing exceptions within a default switch case
+-   using assertions to ensure that to determine data is within a specific range
+-   creating independent program modules
+-   validating all paremteres and return values
