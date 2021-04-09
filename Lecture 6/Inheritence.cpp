@@ -4,6 +4,8 @@ This file will contain an implemenation of inheritence within a simple form
 */
 
 
+//https://www.studytonight.com/cpp/order-of-constructor-call.php
+
 //preprocess
 
 #include <iostream>
@@ -77,8 +79,9 @@ class WHatHacker: public hacker{
 
     };
 
-    WHatHacker(std::string n, int a, std::string o){
+    WHatHacker(std::string n, int a, std::string o) :hacker(n, a){
         o = organisation;
+
     }
 
 
@@ -136,11 +139,11 @@ int main(){
     
     
     //single level inheritence
-    WHatHacker hacker1;
-    hacker1.setName("Pedro");
-    hacker1.setAge(55);
-    hacker1.setOrganisation("UOW");
-    hacker1.setGender("Male");
+    WHatHacker hacker1("pedro", 55,"uow");
+    //hacker1.setName("Pedro");
+    //hacker1.setAge(55);
+    //hacker1.setOrganisation("UOW");
+    //hacker1.setGender("Male");
 
     hacker1.scanning();
     hacker1.WStatement();
