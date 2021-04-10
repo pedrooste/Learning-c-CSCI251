@@ -25,7 +25,9 @@ class Daughter: public Mother{
         cout << "Daughter default constructor" << endl;
     }
 
-    Daughter(string _Dname, string _Mname) : Mother(_Mname) {
+
+	//Here is the paramatised daughter constructors that calls the paramatised mother constructor
+    Daughter(string _Dname, string _Mname) : Mother(_Mname) {				//heres the inheritence method called
         Dname = _Dname;
     }
 };
@@ -33,7 +35,7 @@ class Daughter: public Mother{
 
 int main(){
 
-    //figure out how to call both constructors.
+    //Creating the daughter objects, calling both constructors
     Daughter d1("yo","mumma");
     cout << "Daughter Name: " << d1.Dname << "\nMother Name: " << d1.Mname;
 
