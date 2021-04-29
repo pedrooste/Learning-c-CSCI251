@@ -1,0 +1,86 @@
+
+Linked Libraries
+    .dll = dynamic linked library (windows)
+    .so  = Shared Object, another dynmic library file (Linux and Mac OS)
+
+Compiling process
+    1. Editor / IDE (code)
+    2. Pre processor (headers and CPP files)
+    3. Compiler (Compiles all code files individually, creates object files)
+    4. Linker (Liks static libraries .lib, .a, creates executable file)
+    5. Loader (Shared libraries .dll, .so, loads the file to execute)
+    6. Execute (The CPU then Executes the input to produce an output)
+
+What is a CPP library?
+    A library is a package of code that is precompiled to be reused by many programs. This is generally defined by two main pieces, the header file 
+    and precompiled binary.
+
+    Using a pre compiled library is great for a number of reasons, including effciecny (resources) and security (prevent access to source code)
+    
+
+
+Static Library
+    Static libraries are only used within the executable, they are not shared.
+    Static libraries are a collection of object files which are linked directly into your program when you compile.
+    within windows, these are the .lib extension whereas on linux this is .a (archive)
+    The downside to static libraries is that they cause wasted space when they are not properly reused and are hard to update.
+
+
+Dynamic Library
+    Dynamic libraries can be shared between programs as they are not linked to a specfic executable, these are linked to your code
+    within the linker. Within widows, these are known as .dll files (dynamic link library) whereas on linux these are .so (shared object) extension.
+    These are effcient with space and can be updates easier as they are not specifcally linked.
+
+Import Library
+    An Import library is used to link dynamic library to your program, this provides an interface for the executable file.
+    This is usually inluded within the code as a static library.
+
+
+Building a static library
+    One way to build a static library is to generate the object file and use the archiver, this will combine multiple objects into a library
+    
+    g++ -c code.cpp
+    ar -crv libcode.a code.o
+
+    ar = archive
+    -c is an option to create a new archive
+    -r is an option to replace an existed archive if existed with the same name
+    -v to verbose (display) the contents of library
+
+    the result is the library libcode.a, all libraries should be prefixed with lib.
+    To check what the library contains (objects) i can use the -t flag
+    
+    ar -t libcode.a
+    result:
+    code.o
+
+Using the static library
+    To use libcode.a you would include a header and link the library within it
+    Then you can link the library using the following command
+    
+    g++ driver.cpp driver.cpp libcode.a -o progran
+
+    After we have compiled, we dont need libcode.a around
+
+
+Building a dynamic Library
+    These are built similar to static libraries, except we use the flag -shared
+    We also need to set the path to our current directory where we store our library, we can then use the following 
+    parameteres
+    -I is used to find headers
+    -L is used to find libraries
+
+    Creation Example
+
+    LD_LIBRARY_PATH=.                               //setting the library path
+    export LD_LIBRARY_PATH
+    g++ -fpic -shared -o libfib.so fibfun.cpp       //creating the library from the cpp file
+    g++ -I -L. time.cpp -lfib -o time2              //compiling the main cpp file, linking the dynamic library
+    ./time2
+
+
+
+
+
+    1 to 10 electorates
+    randomly assign votes based on account stances and popularity
