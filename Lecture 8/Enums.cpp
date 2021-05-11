@@ -45,6 +45,7 @@ int main(){
 
     //note that enums are stored as integers
     std::cout << (int) webby << std::endl;
+    std::cout << webby << std::endl;
 
     return 0;
 }
