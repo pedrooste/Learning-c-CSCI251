@@ -9,13 +9,16 @@ Where do we save the code for class templates?
     Template codes are not class or memeber functions, they are instructions to the cpp compiler for how to generate the class definition. Therefore generic classes should
     be placed within the header file.
 
+Specialisation
+    Much like specialisation methods, we can create specialised classes, these may contain methods that another data type would not contain
+
 */
 
 //preprocess
 #include <iostream>
 
 
-//generic class
+//generic class -------------------------------------
 template<typename T>
 class Number{
     private:
@@ -36,7 +39,7 @@ void Number<T> :: display() {
     std::cout << theNumber << '\n';
 }
 
-//generic class 2
+//generic class 2 ----------------------------------
 template<typename T>
 class MyPair{
     private:
@@ -68,6 +71,29 @@ T MyPair<T>::getMin(){
     }
 }
 
+//specialised classes -------------------------------
+template <class T>
+class MyContainer {
+    T element;
+  public:
+    MyContainer (T arg) {element=arg;}
+    T decrease () {return element-1;}       //decreases element
+};
+
+// class template specialization:
+template <>
+class MyContainer <char> {
+    char element;
+  public:
+    MyContainer (char arg) {element=arg;}
+    char lowercase ()                       //specialised method for character type
+    {
+      return element - ('A' - 'a');         //A - a will return the difference of the lower to upper case range, thus making the character lower case
+    }
+};
+
+// main ---------------------------------------------
+
 int main(){
     //object creation
     Number<int> anInt(50);                      //note that we have to specify the data type on the objects creation
@@ -95,6 +121,17 @@ int main(){
     std::cout << "intpair: " << intPair.getMin() << '\n';
     std::cout << "doublePair: " << doublePair.getMin() << '\n';
     std::cout << "charPair: " << charPair.getMin() << '\n';
+
+    //object creation
+    MyContainer<int> intContainer(23);
+    MyContainer<double> doubleContainer(56.88);
+    MyContainer<char> charContainer('G');
+
+    //using methods
+    std::cout << "------Using Specialisation Classes------\n";
+    std::cout << "decreasing intContainer: " << intContainer.decrease() << '\n';
+    std::cout << "decreasing doubleContainer: " << doubleContainer.decrease() << '\n';
+    std::cout << "making lower case (Specialisation class) intContainer: " << charContainer.lowercase() << '\n\n';
 
     return 0;
 }
