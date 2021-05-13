@@ -122,7 +122,6 @@ int main(){
     std::cout << a << " " << b << '\n';
     std::cout << c << " " << d << '\n';
 
-    //needs some quick work
 
 
 }
