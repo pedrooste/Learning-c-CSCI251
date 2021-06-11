@@ -81,7 +81,7 @@ int main(){
     int intData[] = {1,2,3};
     double doubleData[] = {11.11,22.22,33.33};
 
-    MyContainer<int> MyContainer1(intData, 4);
+    MyContainer<int> MyContainer1(intData, 3);
     MyContainer1.display();
 
     MyContainer<double> MyContainer2(doubleData, 3);

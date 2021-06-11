@@ -19,6 +19,9 @@ public:
    Cat(string name, string breed, int age);
    Cat(const Cat&); //copy constructor
    Cat(Cat &&myCat); //move
+   
+   void setName(string name){ this->name = name; };
+   string getName(){ return name; };
 };
 
 Cat::~Cat()
@@ -55,5 +58,7 @@ int main()
      Cat myCat("Tigger", "Fluffy unit", 3);
      Cat secondCat=myCat;
      Cat thirdCat = move(secondCat);// call move constructor
+     thirdCat.setName("Bubbles");
+     std::cout << "Name1: " << myCat.getName() << " Name3: " << thirdCat.getName() << '\n';
     return 0;
 }

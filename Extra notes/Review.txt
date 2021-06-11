@@ -1,0 +1,81 @@
+321 tradeshow
+
+why do we want to declare a static or constant variable within a class
+
+Werid Syntax:
+    typedef <exisiting type> <alias name>   //defines a new name for a data type
+    using <alias name> = <existing type>    //same as above
+
+what is a pointer used for?
+    address of operator & vs pointer *
+    
+What is a null pointer and how is it used?
+
+What is the difference between pass by value and reference?
+
+What is a memory leak, When do these occur and how do we prevent?
+
+what is the difference between a shallow and deep copy?
+
+what is the difference between a vector and a map?
+
+difference between pass by value and reference?
+
+What is the difference of a struct and a union, how do the sizes differ?
+
+what is the difference between normal and uniform distribution?
+
+describe the concept behind defensive programming.
+
+What is a naming clash and how do we prevent them.
+
+What is macro definition?
+
+What is conditional compilation?
+
+what is a makefile?
+
+Define the following OOP concepts
+    Encapsulation: hiding sensitive data from users through the use of private attributes and methods.
+    Constructor: The function used to create the object, this is automatically called when an object is intitialised. Deconstructors are then used when the object goes out of scope.
+    Inheritence: The inheritence of attributes and methods from a parent class to a child, this reduces redundant code.
+    Abstraction: Using an interface to access the methods of a class, providing the user with functionality without the user knowing the interworkings of the software.
+    Polymorphism: OVerloading the methods inherited through the parent class to define a child specific function.
+
+Define the following class relations:
+    Dependancy: Uni-directional relationship indicating that one class uses the other, this can be in the form of X having access to information stored in Y
+    Association: Bi-directional relations ship indicating that X uses Y and Y uses X
+    Aggregation: Stronger than assoication, aggregation resembles the ownership type of relationship.
+    Compositon: Strongest version of assoication, where the "a part of" type of relationship is formed. If class Y is a part of X, then Y cannot survive without X.
+    Generalisation: Uses the OOP concept of inheritence
+
+what is overloading, provide an example where this may be used.
+
+What is the difference between a static and dynamic library
+
+How are the move and copy constructor used?
+
+What does RAII stand for, what is the concept behind RAII?
+
+Explain the concept behind generic programming, make sure to mention function and class templates.
+
+What is the wording "A blueprint of a blueprint" refered to and why?
+
+What is the difference between a container and an array.
+
+What does STL stand for, what is the concept behind STL, what are the six major kinds of building blocks?
+
+what si the difference between sequential and associative containers.
+
+What is an adaptor?
+
+What is an allocator?
+
+Programming stuff need to revise:
+    Operator OVerloading
+    Makefiles
+    Macro and condiditional compilation
+    operator overloading
+    creating and using libraries
+    create your own custom exception class
+    function template, max of array, this was listed and must be done.

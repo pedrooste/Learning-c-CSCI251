@@ -1,5 +1,0 @@
-what is the difference between a shallow and deep copy?
-
-what is the difference between a vector and a map?
-
-difference between pass by value and reference?
