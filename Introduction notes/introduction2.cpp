@@ -191,7 +191,7 @@ void structs(){
     Student s1;
     s1.addr.postcode = 2500;
     s1.addr.city = "Mount Keira";
-    s1.id = 679883;
+    s1.id = 999999;
     s1.name = "Pedro";
 
     std::cout << s1.name << " is from " << s1.addr.city << " " << s1.addr.postcode << " and is studying at " << s1.uni << std::endl;

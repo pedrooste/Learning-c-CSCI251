@@ -63,6 +63,19 @@ T MyContainer<T> :: findMax(){
     return max;
 }
 
+template<typename T>
+T findMinArr(T* arr, int s){
+    T min = arr[0];
+    
+    for(int i = 1; i < s; i++){
+        if(arr[i] < min){
+            min = arr[i];
+        }
+    }
+
+    return min;
+}
+
 
 
 

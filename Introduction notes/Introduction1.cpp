@@ -61,7 +61,7 @@ int chocolateInput(){
     //basic input output
     int chocolates;                                                             //variable declaration
 
-    std::cout << "Yo fatty how many chocolates do you want?";                   //terminal output
+    std::cout << "Yo boi how many chocolates do you want?";                   //terminal output
 
     std::cin >> chocolates;                                                     //user input
 

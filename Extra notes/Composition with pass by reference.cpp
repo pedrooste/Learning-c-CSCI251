@@ -34,7 +34,7 @@ int main(){
     Engine engine2 = Engine();
 
     //setting attributes
-    car1.setName("Boofhead");
+    car1.setName("Falcon");
     car1.getEngines().push_back(engine1);
     car1.getEngines().push_back(engine2);
 

@@ -14,7 +14,7 @@ int main(){
 
     std::cout << "Max between 5 and 9: " << findmax(5,9) << '\n';
 
-    char message[] = {'Y','o','m','u','m','m','a'};
+    char message[] = {'H','E','L','L','O',' ','A'};
 
     for(char letter: message){
         std::cout << letter << " ";

@@ -36,7 +36,7 @@ class Daughter: public Mother{
 int main(){
 
     //Creating the daughter objects, calling both constructors
-    Daughter d1("yo","mumma");
+    Daughter d1("Daisy","Michelle");
     cout << "Daughter Name: " << d1.Dname << "\nMother Name: " << d1.Mname;
 
     return 0;

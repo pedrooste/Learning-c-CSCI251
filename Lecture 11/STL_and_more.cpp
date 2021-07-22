@@ -74,7 +74,7 @@ int main(){
 
     //displaying array display functionality
     std::array<char, 50> a{1,2,3};
-    strcpy(&a[0],"Yo mumma");
+    strcpy(&a[0],"Yo Hello Govna");
     std::cout << a[0] << "+++" << a[1] << '\n';
     std::cout << a.data() << '\n';                  //this will print out the entire contents
 
